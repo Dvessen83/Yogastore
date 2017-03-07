@@ -30,15 +30,20 @@ end
 
 def add_to_cart(ref)
     new_item = @products.find {|x| x[:reference_number] == ref}
-    #puts "ref is #{ref}"
-    #puts "new item is#{new_item}"
-  @shopping_cart << new_item
+    @shopping_cart << new_item
 end
 
 def view_shopping_cart
-  puts "This is in your shopping cart: "
+  puts "This is currently in your shopping cart: "
   @shopping_cart.each do |item|
     puts "#{item[:reference_number]} #{item[:name]} $#{item[:price]} "
+  end
+end
+
+def add_to_total
+  @shopping_cart.each do |item|
+    @price_total += item[:price]
+    puts "Your current total is $#{@price_total}"
   end
 end
 
@@ -47,9 +52,8 @@ end
 
 
 
-
-
-#welcome_customer
-#show_menu
+welcome_customer
+show_menu
 add_to_cart(menu_select)
 view_shopping_cart
+add_to_total
