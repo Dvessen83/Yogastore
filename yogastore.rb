@@ -8,3 +8,13 @@
   { reference_number: 1237, name: "Bring Yoga To Life", price: 30 },
   { reference_number: 1238, name: "Light On Yoga", price: 10 }
 ]
+
+@shopping_cart = []
+
+
+def welcome_customer
+ puts "Welcome to the Yogastore"
+end
+
+
+welcome_customer
