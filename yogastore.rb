@@ -18,34 +18,38 @@ def welcome_customer
 end
 
 def show_menu
-    @products.each do |product|
+  @products.each do |product|
     puts "#{product[:reference_number]} #{product[:name]} #{product[:price]} Euro"
   end
 end
 
 def menu_select
   print "Please enter reference number of the item you would like to buy: "
-  ref_number = gets.chomp.to_i
-  #puts ref_number
+  gets.chomp.to_i
 end
 
 def add_to_cart(ref)
     new_item = @products.find {|x| x[:reference_number] == ref}
     #puts "ref is #{ref}"
     #puts "new item is#{new_item}"
+  @shopping_cart << new_item
+end
 
-
-
-
-  @shopping_cart << new_item;
-  puts "This is in your cart: #{@shopping_cart}"
-
-
+def view_shopping_cart
+  puts "This is in your shopping cart: "
+  @shopping_cart.each do |item|
+    puts "#{item[:reference_number]} #{item[:name]} $#{item[:price]} "
+  end
 end
 
 
 
-welcome_customer
-show_menu
-#menu_select
+
+
+
+
+
+#welcome_customer
+#show_menu
 add_to_cart(menu_select)
+view_shopping_cart
