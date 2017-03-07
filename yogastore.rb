@@ -13,8 +13,14 @@
 
 
 def welcome_customer
- puts "Welcome to the Yogastore"
+ puts "Welcome to the Yogastore!\n\n"
 end
 
+def show_menu
+    @products.each do |product|
+    puts "#{product[:reference_number]} #{product[:name]} #{product[:price]} Euro"
+  end
+end
 
 welcome_customer
+show_menu
