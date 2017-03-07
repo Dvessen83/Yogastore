@@ -49,11 +49,15 @@ end
 
 
 
-
-
-
 welcome_customer
-show_menu
-add_to_cart(menu_select)
-view_shopping_cart
-add_to_total
+loop do
+  show_menu
+  add_to_cart(menu_select)
+  view_shopping_cart
+  add_to_total
+  print "Would you like to add anything else? (y/n)"
+  if gets.chomp.upcase == "N"
+     puts "Thank you for shopping!"
+     break
+  end  
+end
