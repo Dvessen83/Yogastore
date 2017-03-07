@@ -10,6 +10,7 @@
 ]
 
 @shopping_cart = []
+@price_total = 0
 
 
 def welcome_customer
@@ -22,5 +23,29 @@ def show_menu
   end
 end
 
+def menu_select
+  print "Please enter reference number of the item you would like to buy: "
+  ref_number = gets.chomp.to_i
+  #puts ref_number
+end
+
+def add_to_cart(ref)
+    new_item = @products.find {|x| x[:reference_number] == ref}
+    #puts "ref is #{ref}"
+    #puts "new item is#{new_item}"
+
+
+
+
+  @shopping_cart << new_item;
+  puts "This is in your cart: #{@shopping_cart}"
+
+
+end
+
+
+
 welcome_customer
 show_menu
+#menu_select
+add_to_cart(menu_select)
